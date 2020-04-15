@@ -1,3 +1,4 @@
+
 let questions = [
 	{
 		question: 'Which language is used for styling web pages?',
@@ -153,9 +154,9 @@ alert('correct answer');
 console.log(ans, questions[currentQuestionIndex].option[0]);
 	}
 	else{
-		// alert('answer is wrong');
+		alert('answer is wrong');
 		let incorrectMessage = document.createElement('P');
-		incorrectMessage.innerText = 'answer is wrong';
+		incorrectMessage.innerText = ('answer is wrong');
 
 		document.getElementById('result').appendChild(incorrectMessage);
 		console.log(ans, questions[currentQuestionIndex].option[0]);
@@ -173,10 +174,3 @@ result.innerHTML = 'Score: ' + score;
 getQuestion();
 	}
 
-
-let seconds = 0;
-function timeLapse() {
-	seconds += 60;
-	    document.getElementById('time').innerText = seconds.toString();
-    }
-setInterval(timeLapse, 1000);
