@@ -23,12 +23,13 @@ let questions = [
 		],
 	},
 	{
-		question: 'Which of the following sentence is true about Div tag?',
+		question:
+			' Which of the following property sets the shadow for a box element?',
 		option: [
-			'Div tag is a block-level element?',
-			'Hyper tool Markup Language',
-			'Hyper link Manipulation Language',
-			'Hyper text Manipulation Language',
+			'box-shadow',
+			'set-shadow',
+			'canvas-shadow',
+			'shadow',
 		],
 	},
 	{
@@ -128,6 +129,7 @@ function getQuestion() {
 	const answers = questions[currentQuestionIndex].option;
 	// for each input display questions
 	questionContainer.textContent = currentQuestionIndex + 1 + '. '+ questions[currentQuestionIndex].question;
+	console.log(questionContainer.textContent);
 	selectedOption.forEach(function (input, i) {
 	// Set radio button check value  
 		input.value = answers[i];
@@ -173,4 +175,21 @@ if (currentQuestionIndex >= questions.length) {
 result.innerHTML = 'Score: ' + score;
 getQuestion();
 	}
-
+//set time for quiz to 10 minutes
+let time = 10;
+//convert time to seconds
+let second = parseInt(time * 60);
+//setInterval
+setInterval(displayTimer, 1000);
+//function o display timer
+function displayTimer() {
+	//select timer dive to display time
+	document.getElementById('time').innerHTML = 'Time Left: ' + time + ' min ' + second;
+	//minimize time
+	second--;
+	//condition to stop timer
+	if (time === 0) {
+		clearInterval(interval);
+		document.getElementById('time').innerHTML = 'Time is Up!';
+	}
+};

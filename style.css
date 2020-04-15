@@ -9,7 +9,7 @@ body {
 	padding: 1rem;
 	min-height: 100vh;
 	font-family: sans-serif;
-	background-color:  rgb(206, 221, 233);
+	background-color: #e3e3e3;
 	width: 100%;
 }
 p{
@@ -26,10 +26,6 @@ a{
 
 }
  
-@keyframes example {
-  from {background-color: rgb(98, 109, 103);}
-  to {background-color: #dfc4d4;}
-}
 h1, h2{
     display: grid;
     font-size: 1.5em;
@@ -41,9 +37,29 @@ h1, h2{
 	font-size: 28px;
 	justify-content: center;
 	align-content: center;
-	animation-name: example;
-  animation-duration: 10s;
 }
 h1{
-	background-color: rgb(124, 118, 108);
+	background-color: rgb(197, 195, 192);
+}
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+}
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+}
+@media 
+  (min-device-width: 800px) 
+  and (max-device-width: 1280px) {
+
 }
