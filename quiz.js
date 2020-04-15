@@ -128,11 +128,11 @@ function getQuestion() {
 	// for each input display questions
 	questionContainer.textContent = currentQuestionIndex + 1 + '. '+ questions[currentQuestionIndex].question;
 	selectedOption.forEach(function (input, i) {
-		// Set radio button check value  
+	// Set radio button check value  
 		input.value = answers[i];
-//reset value
+	//reset value
 		input.checked = false;
-		// Display the options text
+	// Display the options text
 		let ansContainer= input.nextElementSibling;
 		ansContainer.textContent = answers[i];
 	});
@@ -142,10 +142,10 @@ getQuestion();
 //add EventListener to next button
 nextButton.addEventListener('click', handleNextQuestion);
 function handleNextQuestion() {
-	// provide condition to correct answer
+// provide condition to correct answer
 	let selectAnswer = document.querySelector('input[type=radio]:checked');
 	let ans = selectAnswer.value;
-	// update number of correctly answered questions:
+// update number of correctly answered questions:
 	if (ans == questions[currentQuestionIndex].option[0]){
 score += 5;
 alert('correct answer');
@@ -155,7 +155,7 @@ console.log(ans, questions[currentQuestionIndex].option[0]);
 		alert('answer is wrong');
 		console.log(ans, questions[currentQuestionIndex].option[0]);
 	}
-	// answer++;
+	answer++;
 	// next question
 	currentQuestionIndex++;
 if (currentQuestionIndex >= questions.length) {
