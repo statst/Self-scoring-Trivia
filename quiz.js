@@ -146,26 +146,30 @@ function handleNextQuestion() {
 	let selectAnswer = document.querySelector('input[type=radio]:checked');
 	let ans = selectAnswer.value;
 // update number of correctly answered questions:
+result.innerHTML='';
 	if (ans == questions[currentQuestionIndex].option[0]){
 score += 5;
 alert('correct answer');
 console.log(ans, questions[currentQuestionIndex].option[0]);
 	}
 	else{
-		alert('answer is wrong');
+		// alert('answer is wrong');
+		let incorrectMessage = document.createElement('P');
+		incorrectMessage.innerText = 'answer is wrong';
+
+		document.getElementById('result').appendChild(incorrectMessage);
 		console.log(ans, questions[currentQuestionIndex].option[0]);
 	}
-	answer++;
 	// next question
 	currentQuestionIndex++;
 if (currentQuestionIndex >= questions.length) {
 		//display score
-		body.innerHTML = 'Your Score:'+ score;
+		body.innerHTML = 'Well Done! Your Score:'+ score;
 			// restart
 			currentQuestionIndex = 0;
 		answer = 0;
 		}
-
+result.innerHTML = 'Score: ' + score;
 getQuestion();
 	}
 
