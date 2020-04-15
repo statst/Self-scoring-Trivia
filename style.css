@@ -1,0 +1,49 @@
+* {
+	box-sizing: border-box;
+	font-family: Gotham Rounded;
+}
+
+body {
+	display: grid;
+	margin: 0;
+	padding: 1rem;
+	min-height: 100vh;
+	font-family: sans-serif;
+	background-color:  rgb(163, 192, 216);
+	width: 100%;
+}
+p{
+	display: grid;
+	font-size: 22px;
+	justify-content: center;
+	align-content: center;
+}
+a{
+	display: grid;
+	font-size: 24px;
+	justify-content: center;
+	align-content: center;
+
+}
+ 
+@keyframes example {
+  from {background-color: rgb(98, 109, 103);}
+  to {background-color: #dfc4d4;}
+}
+h1, h2{
+    display: grid;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em; 
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 28px;
+	justify-content: center;
+	align-content: center;
+	animation-name: example;
+  animation-duration: 10s;
+}
+h1{
+	background-color: rgb(124, 118, 108);
+}
