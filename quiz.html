@@ -6,40 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test your programming Knowledge</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="app.css">
+    <!-- <link rel="stylesheet" href="app.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <div id="quiz"></div>
-        <h4 id="question"></h4>
-    </header>
+    <div class="box">
+        <div class="title">
+            Test your programming Knowledge     
+        </div>
+        <div class= "header">
+            <div class="score">Score : 0</div>
+            <div class="timer">Time left: <span></span> </div>
+        </div>
+        <div class = "question" id="questionScreen" >
 
-    <div class="container"></div>
-    <h4 id="question"></h4>
-    <label>
-        <input type="radio" name="option" value="" id="opt1"><span id="option1"></span>
-    </label>
-    <label>
-        <input type="radio" name="option" value="" id="opt2"><span id="option2"></span>
-    </label>
-    <label>
-        <input type="radio" name="option" value="" id="opt3"><span id="option3"></span>
-    </label>
-    <label>
-        <input type="radio" name="option" value="" id="opt4"><span id="option4"></span>
-    </label>
-
-    <button class="next">Next</button>
-
-    <div id="result"> </div>
-    <div id="time"></div>
-    <footer>
-        <a href='index.html'>Go to home Page</a>
-
-    </footer>
-    <script src="quiz.js"></script>
-
+        </div>
+        <div class="option">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class= "footer">
+            <button>Next</button>
+            <button>See Result</button>
+        </div>
+    </div>
+   <div class="box" id="resultScreen" style="display: none;">
+        <div class="title">
+            Quiz Result
+        </div>
+        <div class="resultBox">
+            <label >Questions : </label>
+            <span id = "totalQuestions">20</span>
+            <label >Attempt : </label>
+            <span id="attemptQuestions">1</span>
+            <label>Correct : </label>
+            <span id="correctAnswers">1</span>
+            <label>Wrong : </label>
+            <span id="wrongAnswers">1</span>
+        </div>
+        <div class="buttonBox">
+            <a href="quiz1.html">Start Again</a>
+        </div>
+   </div>
+<script src="quiz1.js"></script>
 </body>
 
 </html>
