@@ -24,12 +24,7 @@ let questions = [
 	{
 		question:
 			' Which of the following property sets the shadow for a box element?',
-		option: [
-			'box-shadow',
-			'set-shadow',
-			'canvas-shadow',
-			'shadow',
-		],
+		option: ['box-shadow', 'set-shadow', 'canvas-shadow', 'shadow'],
 	},
 	{
 		question:
@@ -100,41 +95,97 @@ let questions = [
 		option: ['Procedures', 'Method', 'Static function', 'Dynamic function'],
 	},
 ];
-console.log(questions[0]);
-let index = 0;
-let 
-function question(){
-	//define total time
-	let totalTime = 200;
-	//set minutes to zero
-	let min = 0;
-	//set intital second value to zero
-	let sec = 0;
-	//set initial counter value to zero
-	let counter = 0;
-	//define timer function and set time interval for 1 seconds interval
-	let timer = setInterval(function(){
-		counter++;
-		//calculate minutes
-		min = Math.floor((totalTime - counter)/60);
-		//convert minutes to seconds
-		sec = totalTime - (min * 60) - counter;
-		console.log("min = 60" + min);
-		console.log('sec = 80' + sec);
-		document.getElementsByClassName('timer').innerText =
-			min + ' : ' + sec;
-		if(counter == totalTime){
-			clearInterval(timer)
-		}
-	}, 1000);
 
-	//get questions
+//select quiz container
+let container = document.getElementById('quiz');
+
+// select question container
+const questionContainer = document.querySelector('#question');
+//select all radio buttons
+const selectedOption = Array.from(
+	document.querySelectorAll('input[name=option]')
+);
+
+//select next button
+const nextButton = document.querySelector('.next');
+
+//select result container
+let result = document.getElementById('result');
+
+//set default index of zero for question
+let currentQuestionIndex = 0;
+//set default index of zero for answer
+let answer = 0;
+let score = 0;
+let body = document.querySelector('body');
+//select message
+let message = document.getElementById('message')
+//write a function to display questions
+function getQuestion() {
+	// define a variable that selects random options
+	const answers = questions[currentQuestionIndex].option;
+	// for each input display questions
+	questionContainer.textContent =
+		currentQuestionIndex + 1 + '. ' + questions[currentQuestionIndex].question;
+	console.log(questionContainer.textContent);
+	selectedOption.forEach(function (input, i) {
+		// Set radio button check value
+		input.value = answers[i];
+		//reset value
+		input.checked = false;
+		// Display the options text
+		let ansContainer = input.nextElementSibling;
+		ansContainer.textContent = answers[i];
+	});
+}
+getQuestion();
+
+//add EventListener to next button
+nextButton.addEventListener('click', handleNextQuestion);
+function handleNextQuestion() {
+	// provide condition to correct answer
+	let selectAnswer = document.querySelector('input[type=radio]:checked');
+	let ans = selectAnswer.value;
+	// update number of correctly answered questions:
+	// result.innerHTML = 'Score: ' + score;
+	if (ans == questions[currentQuestionIndex].option[0]) {
+		score += 5;
+		// alert('correct answer');
+		message.innerText = 'Great Job! Your Answer is correct';
+	
+	} else {
+		// alert('answer is wrong');
+		message.innerText = 'Oops! Your answer is wrong';
+
+	}
+	// next question
+	currentQuestionIndex++;
+	if (currentQuestionIndex >= questions.length) {
+		//display score
+		body.innerHTML = 'Well Done! Your Score:' + score;
+		// restart
+		currentQuestionIndex = 0;
+		answer = 0;
+	}
+	result.innerHTML = 'Score: ' + score;
 	getQuestion();
 }
-
-//function to get questions
-function getquestion(i){
-	console.log(questions);
-	document.getElementsByClassName(question).innerText(questions[i].question);
-	
+//set time for quiz to 10 minutes
+let time = 10;
+//convert time to seconds
+let second = parseInt(time * 60);
+//setInterval
+setInterval(displayTimer, 1000);
+//function o display timer
+function displayTimer() {
+	//select timer dive to display time
+	document.getElementById('time').innerHTML =
+		'Time Left: ' + time + ' min ' + second;
+	//minimize time
+	second--;
+	//condition to stop timer
+	if (time === 0) {
+		clearInterval(interval);
+		document.getElementById('time').innerHTML = 'Time is Up!';
+	}
 }
